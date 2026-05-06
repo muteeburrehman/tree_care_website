@@ -1,8 +1,9 @@
 # Deploy: copy `.env.example` to `.env`, then:
 #   docker compose up -d --build
 #
-# App listens on 127.0.0.1:APP_PUBLISH_PORT (default 3300) for your existing
-# nginx/Caddy/etc. on this VPS. No Traefik, no binding to :80/:443.
+# Listens on 127.0.0.1:APP_PUBLISH_PORT (default 3300) for host/debug.
+# Also joins the Qubix edge network so qubix-nginx can proxy_pass to
+# http://<container>:3000 (see QUBIX_DOCKER_NETWORK in .env.example).
 
 name: treecare
 
@@ -27,7 +28,11 @@ services:
       NEXT_PUBLIC_CONTACT_EMAIL: ${NEXT_PUBLIC_CONTACT_EMAIL:-}
     networks:
       - web
+      - qubix_proxy
 
 networks:
   web:
     name: treecare_web
+  qubix_proxy:
+    external: true
+    name: ${QUBIX_DOCKER_NETWORK:-qubix-solutions_qubix-net}
