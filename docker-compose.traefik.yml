@@ -1,0 +1,45 @@
+# Optional: use ONLY on a server where :80 and :443 are free (no other proxy).
+#   docker compose -f docker-compose.yml -f docker-compose.traefik.yml up -d --build
+#
+# Merge adds Traefik + Let's Encrypt. Set ACME_EMAIL in `.env`.
+
+services:
+  traefik:
+    image: traefik:v3.3
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ:-UTC}
+    command:
+      - --api.dashboard=false
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --providers.docker.network=treecare_web
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --entrypoints.web.http.redirections.entrypoint.to=websecure
+      - --entrypoints.web.http.redirections.entrypoint.scheme=https
+      - --certificatesresolvers.letsencrypt.acme.tlschallenge=true
+      - --certificatesresolvers.letsencrypt.acme.email=${ACME_EMAIL:?Set ACME_EMAIL in .env for Traefik/Let's Encrypt}
+      - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
+      # - --certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+    ports:
+      - "${HTTP_PORT:-80}:80"
+      - "${HTTPS_PORT:-443}:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - letsencrypt:/letsencrypt
+    networks:
+      - web
+
+  app:
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=treecare_web
+      - traefik.http.routers.treecare.rule=Host(`treecare.qubixsolution.com`)
+      - traefik.http.routers.treecare.entrypoints=websecure
+      - traefik.http.routers.treecare.tls=true
+      - traefik.http.routers.treecare.tls.certresolver=letsencrypt
+      - traefik.http.services.treecare.loadbalancer.server.port=3000
+
+volumes:
+  letsencrypt:

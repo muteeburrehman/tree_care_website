@@ -13,6 +13,15 @@ WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+# Inlined into the client bundle at build time — set via compose build.args / `.env`
+ARG NEXT_PUBLIC_SITE_URL=https://treecare.qubixsolution.com
+ARG NEXT_PUBLIC_FACEBOOK_URL=
+ARG NEXT_PUBLIC_CONTACT_EMAIL=
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+ENV NEXT_PUBLIC_FACEBOOK_URL=$NEXT_PUBLIC_FACEBOOK_URL
+ENV NEXT_PUBLIC_CONTACT_EMAIL=$NEXT_PUBLIC_CONTACT_EMAIL
+
 RUN npm run build
 
 FROM node:${NODE_VERSION}-alpine AS runner
