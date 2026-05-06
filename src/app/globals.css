@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: 15 30 26;
+  --background: 250 247 242;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+}
+
+/* Subtle focus ring for accessibility */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-forest-500;
+}
