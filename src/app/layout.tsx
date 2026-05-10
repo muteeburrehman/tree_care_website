@@ -72,7 +72,7 @@ export default function RootLayout({
 
   return (
     <html lang="en-GB" className={`${dmSans.variable} ${fraunces.variable}`}>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased" suppressHydrationWarning>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -2,7 +2,8 @@ import Link from "next/link";
 
 const nav = [
   { href: "#services", label: "Services" },
-  { href: "#work", label: "Our work" },
+  { href: "#work", label: "Before & after" },
+  { href: "#reviews", label: "Reviews" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
@@ -30,7 +31,7 @@ export function Header() {
         </nav>
         <Link
           href="#contact"
-          className="rounded-full bg-forest-800 px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-forest-700"
+          className="rounded-full bg-amber-warm px-4 py-2 text-sm font-semibold text-forest-950 shadow-md ring-2 ring-amber-warm/30 transition hover:brightness-110"
         >
           Free quote
         </Link>

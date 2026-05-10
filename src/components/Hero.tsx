@@ -1,10 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const facebookHref =
-  process.env.NEXT_PUBLIC_FACEBOOK_URL ??
-  "https://www.facebook.com/search/top/?q=Aj+Treecare";
-
 export function Hero() {
   return (
     <section
@@ -18,38 +14,54 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-12 lg:py-24 lg:px-8">
         <div className="max-w-xl">
           <p className="mb-3 font-medium uppercase tracking-[0.2em] text-leaf-light/90">
-            South Wales · Tree care & gardens
+            South Wales · Tree surgery & garden clearance
           </p>
           <h1
             id="hero-heading"
             className="font-display text-4xl font-semibold leading-tight tracking-tight text-bark-50 sm:text-5xl lg:text-[3.25rem]"
           >
-            Professional tree surgery &amp; garden maintenance
+            Overgrown trees &amp; gardens cleared fast in South Wales
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-bark-200">
-            Overgrown trees or hedges? Need grass and borders brought back under
-            control? AJ Treecare climbs, cuts, and clears—safely and tidily—so
-            your outdoor space looks sharp again.
+            Safe, reliable tree surgery and garden clearance for homeowners who
+            want a clean, usable outdoor space again — without the hassle.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+
+          <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-bark-100">
+            <li className="flex items-center gap-2">
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-leaf-light"
+                aria-hidden
+              />
+              Same-day response
+            </li>
+            <li className="flex items-center gap-2">
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-leaf-light"
+                aria-hidden
+              />
+              Free quotes
+            </li>
+            <li className="flex items-center gap-2">
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-leaf-light"
+                aria-hidden
+              />
+              Fully insured local service
+            </li>
+          </ul>
+
+          <div className="mt-8">
             <Link
               href="#contact"
-              className="inline-flex items-center justify-center rounded-full bg-amber-warm px-6 py-3 text-base font-semibold text-forest-950 shadow-lg ring-2 ring-amber-warm/30 transition hover:brightness-110"
+              className="inline-flex items-center justify-center rounded-full bg-amber-warm px-7 py-3.5 text-base font-semibold text-forest-950 shadow-lg ring-2 ring-amber-warm/30 transition hover:brightness-110"
             >
-              Get a free quote
+              Get your free quote
             </Link>
-            <a
-              href={facebookHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border-2 border-bark-200/40 bg-forest-900/50 px-6 py-3 text-base font-semibold text-bark-50 backdrop-blur-sm transition hover:border-leaf-light/60 hover:bg-forest-800/70"
-            >
-              Message on Facebook
-            </a>
+            <p className="mt-3 text-sm text-bark-300">
+              Takes less than 2 minutes. No obligation.
+            </p>
           </div>
-          <p className="mt-6 text-sm text-bark-300">
-            Trusted local service • Before &amp; after results you can see
-          </p>
         </div>
 
         <div className="relative mx-auto w-full max-w-md lg:max-w-lg lg:justify-self-end">
@@ -68,7 +80,9 @@ export function Hero() {
               <p className="font-display text-lg font-semibold text-white">
                 AJ Treecare
               </p>
-              <p className="text-sm text-bark-100">Tree climber · South Wales</p>
+              <p className="text-sm text-bark-100">
+                Tree surgeon · South Wales
+              </p>
             </div>
           </div>
         </div>
