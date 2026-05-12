@@ -16,7 +16,7 @@ export function Header() {
           href="/"
           className="font-display text-lg font-semibold tracking-tight text-forest-900 sm:text-xl"
         >
-          AJ Treecare
+          Treecare
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium text-forest-800 md:flex">
           {nav.map((item) => (

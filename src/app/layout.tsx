@@ -16,13 +16,13 @@ const fraunces = Fraunces({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ajtreecare.example.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://treecare.example.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "AJ Treecare | Tree Surgeon & Garden Maintenance in South Wales",
-    template: "%s | AJ Treecare",
+    default: "Treecare | Tree Surgeon & Garden Maintenance in South Wales",
+    template: "%s | Treecare",
   },
   description:
     "Professional tree climbing, tree removal, hedge trimming, and garden maintenance across South Wales. Free quotes — overgrown trees and hedges tackled safely.",
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     "garden maintenance",
     "tree climber",
     "grass cutting",
-    "AJ Treecare",
+    "Treecare",
   ],
   openGraph: {
-    title: "AJ Treecare | Tree Surgery & Landscaping in South Wales",
+    title: "Treecare | Tree Surgery & Landscaping in South Wales",
     description:
       "Expert tree care, hedge trimming, and garden maintenance. Message us for a free quote.",
     locale: "en_GB",
@@ -59,7 +59,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "AJ Treecare",
+    name: "Treecare",
     description:
       "Tree surgery, hedge trimming, and garden maintenance in South Wales.",
     areaServed: {

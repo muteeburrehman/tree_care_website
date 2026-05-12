@@ -149,7 +149,7 @@ export function Gallery() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  Completed by AJ Treecare
+                  Completed by Treecare
                 </div>
               </div>
             </li>

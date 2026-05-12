@@ -45,7 +45,7 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-4">
             <p className="font-display text-2xl font-semibold tracking-tight text-bark-50">
-              AJ Treecare
+              Treecare
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-bark-300">
               Tree surgery, hedge trimming, and garden clearance across South
@@ -229,7 +229,7 @@ export function Footer() {
 
       <div className="border-t border-white/10 bg-forest-950">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-bark-300 sm:flex-row sm:px-6 lg:px-8">
-          <p>© {new Date().getFullYear()} AJ Treecare. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Treecare. All rights reserved.</p>
           <p className="text-bark-300/80">
             Tree surgery &amp; garden services · South Wales
           </p>

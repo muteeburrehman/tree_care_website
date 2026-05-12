@@ -17,7 +17,7 @@ export function Contact() {
 
     if (contactMail) {
       const subject = encodeURIComponent(
-        `AJ Treecare quote request from ${name}`,
+        `Treecare quote request from ${name}`,
       );
       const body = encodeURIComponent(
         `Name: ${name}\nPhone: ${phone}\n\nJob details:\n${message}`,

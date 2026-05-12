@@ -12,7 +12,7 @@ export function About() {
               id="about-heading"
               className="font-display text-3xl font-semibold tracking-tight text-forest-900 sm:text-4xl"
             >
-              Meet AJ Treecare
+              Meet Treecare
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-forest-800/90">
               I am a professional tree climber, working at height to reduce,
